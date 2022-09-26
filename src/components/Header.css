@@ -1,8 +1,9 @@
 /* 
 GENERICS 
 */
-.icon__color{
+.icon__color--size{
     color: grey;
+    padding: 10px;
 }
 
 /* 

@@ -15,7 +15,7 @@ export default function Header() {
     <div className="header">
       <div className="header__left">
         <IconButton>
-          <MenuIcon className="icon__color" />
+          <MenuIcon className="icon__color--size" />
         </IconButton>
         <img
           src="https://i.pinimg.com/originals/ae/47/fa/ae47fa9a8fd263aa364018517020552d.png"
@@ -24,24 +24,24 @@ export default function Header() {
         />
       </div>
       <div className="header__middle">
-        <SearchIcon className="icon__color" />
+        <SearchIcon className="icon__color--size" />
         <input
           type="text"
           placeholder="Search mail"
           className="header__input"
         />
-        <ArrowDropDownIcon className="header__input--caret icon__color" />
+        <ArrowDropDownIcon className="header__input--caret icon__color--size" />
       </div>
       <div className="header__right">
         <IconButton>
-          <AppsIcon className="icon__color" />
+          <AppsIcon className="icon__color--size" />
         </IconButton>
         <IconButton>
-          <NotificationsIcon className="icon__color" />
+          <NotificationsIcon className="icon__color--size" />
         </IconButton>
         <AccountCircleIcon
           fontSize="large"
-          className="avatar__logo icon__color"
+          className="avatar__logo icon__color--size"
         />
       </div>
     </div>
