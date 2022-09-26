@@ -1,0 +1,64 @@
+/* 
+GENERICS 
+*/
+.icon__color{
+    color: grey;
+}
+
+/* 
+HEADER CONTAINER 
+*/
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid whitesmoke;
+}
+
+
+/* 
+HEADER LEFT 
+*/
+.header__left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo__img {
+    object-fit: contain;
+    height: 80px;
+    margin-left: 5px;
+}
+
+/* 
+HEADER MIDDLE 
+*/
+.header__middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0.7;
+    background-color: whitesmoke;
+    padding: 10px;
+    border-radius: 9999px;
+}
+
+.header__input {
+    border: none;
+    width: 100%;
+    padding: 10px;
+    outline-width: 0;
+    font-size: medium;
+    background-color: transparent;
+}
+
+/* 
+HEADER RIGHT 
+*/
+.header__right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 20px;
+}
