@@ -1,7 +1,9 @@
-import React from "react";
-import "./EmailList.css";
+import React, { useState, useEffect } from "react";
 import Section from "./Section";
 import EmailRow from "./EmailRow";
+import { db } from "./FireStoreCloud";
+import { collection, orderBy, getDocs, onSnapshot } from "firebase/firestore";
+import "./EmailList.css";
 
 // ICONS
 import IconButton from "@mui/material/Button";
@@ -18,6 +20,25 @@ import PeopleIcon from "@mui/icons-material/People";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 
 export default function EmailList() {
+  const [emails, setEmails] = useState([]);
+
+  useEffect(() => {
+    getAllPost();
+  }, []);
+
+  async function getAllPost() {
+    const todoEmails = collection(db, "emails");
+    const unsub = onSnapshot(todoEmails, (snapshot) => {
+      const post = snapshot.docs.map((elem) => ({
+        ...elem.data(),
+        id: elem.id,
+      }));
+      const sortedPost = post.sort((a, b) => b.timestamp - a.timestamp);
+      setEmails(sortedPost);
+    });
+    return () => unsub;
+  }
+
   return (
     <div className="email__list">
       <div className="email__list--settings">
@@ -54,18 +75,19 @@ export default function EmailList() {
         <Section Icon={LocalOfferIcon} title="Promotions" color="green" />
       </div>
       <div className="email__list--rows">
-        <EmailRow
-          title="title"
-          subject="subject"
-          description="description"
-          time="8pm"
-        />
-        <EmailRow
-          title="title"
-          subject="subject"
-          description="descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription"
-          time="8pm"
-        />
+        {emails.map((email) => (
+          <EmailRow
+            key={email.id}
+            id={email.id}
+            title={email.to}
+            subject={email.subject}
+            description={email.message}
+            time={new Date(email.timestamp?.seconds * 1000).toLocaleString(
+              "en-US",
+              { timeZone: "America/Los_Angeles" }
+            )}
+          />
+        ))}
       </div>
     </div>
   );
