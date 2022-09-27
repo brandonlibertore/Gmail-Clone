@@ -1,6 +1,7 @@
 import React from "react";
 import "./EmailList.css";
 import Section from "./Section";
+import EmailRow from "./EmailRow";
 
 // ICONS
 import IconButton from "@mui/material/Button";
@@ -51,6 +52,20 @@ export default function EmailList() {
         <Section Icon={InboxIcon} title="Primary" color="red" selected={true} />
         <Section Icon={PeopleIcon} title="Social" color="#1a73e8" />
         <Section Icon={LocalOfferIcon} title="Promotions" color="green" />
+      </div>
+      <div className="email__list--rows">
+        <EmailRow
+          title="title"
+          subject="subject"
+          description="description"
+          time="8pm"
+        />
+        <EmailRow
+          title="title"
+          subject="subject"
+          description="descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription"
+          time="8pm"
+        />
       </div>
     </div>
   );
