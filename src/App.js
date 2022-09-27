@@ -33,18 +33,21 @@ function App() {
 
   return (
     <Router basename={process.env.PUBLIC_URL}>
-      {!user ? <Login /> : ""}
-      <div className="app">
-        <Header />
-        <div className="app__body">
-          <Sidebar />
-          <Routes>
-            <Route path="/mail" element={<Mail />}></Route>
-            <Route path="/" exact element={<EmailList />}></Route>
-          </Routes>
+      {!user ? (
+        <Login />
+      ) : (
+        <div className="app">
+          <Header />
+          <div className="app__body">
+            <Sidebar />
+            <Routes>
+              <Route path="/mail" element={<Mail />}></Route>
+              <Route path="/" exact element={<EmailList />}></Route>
+            </Routes>
+          </div>
+          {sendMessageIsOpen && <SendMail />}
         </div>
-        {sendMessageIsOpen && <SendMail />}
-      </div>
+      )}
     </Router>
   );
 }
