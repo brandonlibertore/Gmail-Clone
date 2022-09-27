@@ -13,6 +13,15 @@ GENERICS
     overflow: scroll;
 }
 
+.email__list::-webkit-scrollbar{
+    display: none;
+}
+
+.email__list{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 .email__list--settings{
     display: flex;
     justify-content: space-between;
