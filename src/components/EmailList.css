@@ -1,0 +1,38 @@
+/*
+GENERICS
+*/
+.icon__color--size{
+    color: grey;
+    padding: 10px;
+}
+
+
+/* EMAIL LIST SETTINGS */
+.email__list{
+    flex: 1;
+    overflow: scroll;
+}
+
+.email__list--settings{
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid whitesmoke;
+    background-color: white;
+    z-index: 999;
+    padding-right: 10px;
+}
+
+.checkbox{
+    padding: 20px !important;
+}
+
+.email__list--sections{
+    display: flex;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid whitesmoke;
+    background-color: white;
+    z-index: 999;
+}
