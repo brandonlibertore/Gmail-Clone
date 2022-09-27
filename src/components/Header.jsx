@@ -1,5 +1,10 @@
 import React from "react";
 import "./Header.css";
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/userSlice";
+import { auth } from "./FireStoreCloud";
+import { logout } from "../features/userSlice";
+import { useDispatch } from "react-redux";
 
 // ICONS
 import MenuIcon from "@mui/icons-material/Menu";
@@ -8,9 +13,18 @@ import IconButton from "@mui/material/Button";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import AppsIcon from "@mui/icons-material/Apps";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import Avatar from "@mui/material/Avatar";
 
 export default function Header() {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
+  const signOut = () => {
+    auth.signOut().then(() => {
+      dispatch(logout());
+    });
+  };
+
   return (
     <div className="header">
       <div className="header__left">
@@ -39,7 +53,9 @@ export default function Header() {
         <IconButton>
           <NotificationsIcon className="icon__color--size" />
         </IconButton>
-        <AccountCircleIcon
+        <Avatar
+          onClick={signOut}
+          src={user?.photoUrl}
           fontSize="large"
           className="avatar__logo icon__color--size"
         />
